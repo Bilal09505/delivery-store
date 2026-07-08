@@ -12,7 +12,7 @@ import { AuthService } from '../../core/services/auth.service';
         (submit)="onSubmit($event)"
         class="bg-white p-6 sm:p-8 rounded-lg shadow-md w-full max-w-sm space-y-4"
       >
-        <h1 class="text-xl font-semibold text-gray-800">Store Login</h1>
+        <h1 class="text-xl font-semibold text-gray-800">Store Login with GitHub</h1>
         <input
           [(ngModel)]="email"
           name="email"
