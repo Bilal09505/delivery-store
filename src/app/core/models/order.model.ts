@@ -1,14 +1,14 @@
 export type OrderStatus =
   | 'new_order'
   | 'packing'
-  | 'ready_for_delivery'
+  | 'ready_to_delivery'
   | 'posted'
   | 'delivered';
 
 export const ORDER_STATUS_FLOW: OrderStatus[] = [
   'new_order',
   'packing',
-  'ready_for_delivery',
+  'ready_to_delivery',
   'posted',
   'delivered',
 ];
@@ -16,14 +16,15 @@ export const ORDER_STATUS_FLOW: OrderStatus[] = [
 export const ORDER_STATUS_LABELS: Record<OrderStatus, string> = {
   new_order: 'New Order',
   packing: 'Packing',
-  ready_for_delivery: 'Ready for Delivery',
+  ready_to_delivery: 'Ready for Delivery',
   posted: 'Posted',
   delivered: 'Delivered',
 };
 
 export interface OrderItem {
+  category: string;
   name: string;
-  qty: number;
+  quantity: number;
   price: number;
 }
 

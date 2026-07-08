@@ -11,12 +11,12 @@ import { auth } from '../firebase';
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   user = signal<User | null>(null);
-  ready = signal(false);
+  initialized = signal(false);
 
   constructor(private router: Router) {
     onAuthStateChanged(auth, (u) => {
       this.user.set(u);
-      this.ready.set(true);
+      this.initialized.set(true);
     });
   }
 

@@ -40,14 +40,14 @@ export class OrderService {
       updatedAt: now,
     });
   }
-
-  async advanceStatus(order: Order) {
+  async setStatus(order: Order, newStatus: OrderStatus) {
     const currentIndex = ORDER_STATUS_FLOW.indexOf(order.status);
-    const next = ORDER_STATUS_FLOW[currentIndex + 1];
-    if (!next || !order.id) return;
+    const newIndex = ORDER_STATUS_FLOW.indexOf(newStatus);
+    if (newIndex < currentIndex || !order.id) return; // block backward moves
     await updateDoc(doc(db, 'orders', order.id), {
-      status: next,
+      status: newStatus,
       updatedAt: Date.now(),
     });
   }
+
 }
